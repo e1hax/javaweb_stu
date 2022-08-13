@@ -8,8 +8,206 @@
 -->
 <mapper namespace="com.javawebstu.mapper.BrandMapper">
 
-    <select id="selectAll" resultType="com.javawebstu.pojo.Brand">
+    <!--
+       数据库表的字段名称，和实体类的属性名称不一样，则不能自动封装数据
+       * 起别名：对不一样的列名起别名，让别名和实体类的属性名一样
+           缺点：每次查询都要定义一次别名
+       * sql片段：
+           缺点：不灵活
+       * resultMap映射：
+            1.定义<resultMap> 标签
+            2. 在 <select>标签中，使用 resultMap 属性替换 resultType 属性
+       -->
+
+    <!-- 映射的方式
+            id:唯一标识
+            type： 映射的类型，支持别名
+    -->
+    <resultMap id="brandResultMap" type="brand">
+        <!--
+            id：完成主键字段的映射
+                    column：表的列名
+                    property：实体类的属性名
+            result： 完成一般字段的映射
+                    column：表的列名
+                    property：实体类的属性名
+        -->
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand(brand_name, company_name, ordered, description, status)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
+    </insert>
+
+    <!--<update id="update">-->
+    <!--    update tb_brand-->
+    <!--    set brand_name = #{brandName},-->
+    <!--        company_name=#{companyName},-->
+    <!--        ordered=#{ordered},-->
+    <!--        description=#{description},-->
+    <!--        status=#{status}-->
+    <!--    where-->
+    <!--        id = #{id}-->
+    <!--</update>-->
+
+    <update id="update">
+        update tb_brand
+        <set>
+            <if test="brandName != null and brandName !=''">
+                brand_name = #{brandName},
+            </if>
+            <if test="companyName != null and companyName !=''">
+                company_name=#{companyName},
+            </if>
+            <if test="ordered != null ">
+                ordered=#{ordered},
+            </if>
+            <if test="description != null and description !=''">
+                description=#{description},
+            </if>
+            <if test="status != null ">
+                status=#{status}
+            </if>
+        </set>
+        where
+        id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete from tb_brand where id=#{id}
+    </delete>
+
+    <!--
+        mybatis会将数组参数，封装为一个Map集合
+            *默认：array=数组
+            *使用@Param注解改变map集合默认key的名称
+    -->
+    <delete id="deleteByIds">
+        delete from tb_brand
+        where
+        id in <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+    </foreach>
+    </delete>
+
+
+    <select id="selectAll" resultMap="brandResultMap">
         select *
         from tb_brand;
     </select>
+
+    <!--sql片段-->
+    <!--<sql id="brand_column">-->
+    <!--    select id,brand_name as brandName,company_name as companyName,ordered,description,status-->
+    <!--</sql>-->
+    <!--<select id="selectAll" resultType="brand">-->
+    <!--        select-->
+    <!--            <include refid="brand_column"/>-->
+    <!--        from tb_brand;-->
+    <!--    </select>-->
+
+    <!--<select id="selectAll" resultType="brand">-->
+    <!--     select-->
+    <!--       id,brand_name as brandName,company_name as companyName,ordered,description,status&ndash;&gt;-->
+    <!--     from tb_brand;-->
+    <!--</select>-->
+
+    <!--
+        1.参数占位符：
+            1）#{}：执行sql时，会将#{}替换为?，将来自动设置参数，可以防止sql注入
+            2）${}: 拼sql，会存在sql注入问题
+            3）使用场景：
+                参数传递：都是用#{}
+                如果要对列名或者表名进行动态设置，只能使用${}进行动态拼接
+        2.parameterType：用于设置参数类型，改参数可以省略
+        3.sql语句中特殊字符处理：
+            转义字符
+            <![CDATA[内容]]>：CD提示
+    -->
+
+    <!--<select id="selectById" resultMap="brandResultMap">-->
+    <!--    select-->
+    <!--        *-->
+    <!--    from tb_brand where id <![CDATA[-->
+    <!--    >-->
+    <!--    ]]>#{id};-->
+    <!--</select>-->
+
+    <!--查询详情-->
+    <select id="selectById" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where id = #{id};
+    </select>
+
+    <!--多条件查询-->
+    <!--<select id="selectByCondition" resultMap="brandResultMap">-->
+    <!--    select-->
+    <!--           *-->
+    <!--    from tb_brand-->
+    <!--        where status=#{status}-->
+    <!--          and company_name like #{companyName}-->
+    <!--          and brand_name like #{brandName};-->
+    <!--</select>-->
+
+    <!--多条件动态查询-->
+    <select id="selectByCondition" resultMap="brandResultMap">
+        select
+        *
+        from tb_brand
+        /*where 1=1 恒等式*/
+        <where>
+            <if test="status != null">
+                and status=#{status}
+            </if>
+            <if test="companyName != null and companyName != ''">
+                and company_name like #{companyName}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name like #{brandName};
+            </if>
+        </where>
+    </select>
+
+
+    <select id="selectByConditionSingle" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where
+        <choose> <!-- 相当于switch -->
+            <when test="status != null"> <!-- 相当于case -->
+                status = #{status}
+            </when>
+            <when test="companyName != null and companyName != ''">
+                company_name like #{companyName}
+            </when>
+            <when test="brandName != null and brandName != ''">
+                brand_name like #{brandName}
+            </when>
+            <otherwise>1=1</otherwise>
+        </choose>
+
+    </select>
+
+    <!--<select id="selectByConditionSingle" resultMap="brandResultMap">-->
+    <!--    select *-->
+    <!--    from tb_brand-->
+    <!--    <where>-->
+    <!--        <choose> &lt;!&ndash; 相当于switch &ndash;&gt;-->
+    <!--            <when test="status != null"> &lt;!&ndash; 相当于case &ndash;&gt;-->
+    <!--                status = #{status}-->
+    <!--            </when>-->
+    <!--            <when test="companyName != null and companyName != ''">-->
+    <!--                company_name like #{companyName}-->
+    <!--            </when>-->
+    <!--            <when test="brandName != null and brandName != ''">-->
+    <!--                brand_name like #{brandName}-->
+    <!--            </when>-->
+    <!--        </choose>-->
+    <!--    </where>-->
+
+    <!--</select>-->
+
+
 </mapper>
