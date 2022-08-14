@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+                              ==:
+                                1.判断类型是否一样，如果不一样，则进行类型转换
+                                2.再去比较值
+
+                              ===：全等于
+                                1.判断类型是否一样，如果不一样，直接返回false
+                                2.再去比较值
+                        */
+        var age1 = 10;
+        var age2 = '10';
+        window.alert(age1 == age2);
+
+        /*
+          类型转换：
+            其他类型转换为number
+              1.string:按照字符串的字面值，转为数字.如果字面值不是数字，则转为NaN。一般使用parseInt
+              2.boolean:true转为1,false转为0
+            其他类型转换为boolean
+              1.number:0和NaN转为false,其他的数字转为true
+              2.string:空字符串转为faLse,其他的字符串转为true
+              3.null:false
+              4.undefined:false
+        */
+    </script>
+
+</body>
+
+</html>
