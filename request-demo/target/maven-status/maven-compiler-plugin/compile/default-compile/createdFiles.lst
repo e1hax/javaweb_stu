@@ -1,0 +1,13 @@
+com\stu\mapper\UserMapper.class
+com\stu\pojo\User.class
+com\stu\web\response\ResponseDemo4.class
+com\stu\web\request\RequestDemo1.class
+com\stu\web\request\RequestDemo2.class
+com\stu\web\RegisterServlet.class
+com\stu\web\response\ResponseDemo3.class
+com\stu\web\request\RequestDemo3.class
+com\stu\web\response\ResponseDemo1.class
+com\stu\web\response\ResponseDemo2.class
+com\stu\web\request\RequestDemo5.class
+com\stu\web\request\RequestDemo4.class
+com\stu\web\LoginServlet.class
