@@ -1,0 +1,9 @@
+com\stu\web\DeleteServlet.class
+com\stu\web\SelectAllServlet.class
+com\stu\web\AddServlet.class
+com\stu\service\BrandService.class
+com\stu\web\SelectByIdServlet.class
+com\stu\util\SqlSessionFactoryUtils.class
+com\stu\web\UpdateServlet.class
+com\stu\mapper\BrandMapper.class
+com\stu\pojo\Brand.class
