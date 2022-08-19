@@ -43,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("register_msg","注册成功，请登录");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
         }else{
-            request.setAttribute("register_msg","用户已存在");
+            request.setAttribute("register_msg","用户已存在，重新输入");
             request.getRequestDispatcher("/register.jsp").forward(request,response);
         }
 
