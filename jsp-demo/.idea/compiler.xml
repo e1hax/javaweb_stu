@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="jsp-demo" />
         <module name="brand-demo" />
+        <module name="cookie-demo" />
       </profile>
     </annotationProcessing>
   </component>

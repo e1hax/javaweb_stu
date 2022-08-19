@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../brand-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../cookie-demo" />
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
@@ -10,6 +11,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../brand-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/../cookie-demo/pom.xml" />
       </list>
     </option>
   </component>
