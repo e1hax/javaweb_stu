@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:08:57:57 +0800] "GET /brand-demo/index.html HTTP/1.1" 200 913 http-bio-8080-exec-2 83
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:08:57:57 +0800] "GET /brand-demo/css/login.css HTTP/1.1" 200 913 http-bio-8080-exec-3 5
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:08:57:57 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:09:04:39 +0800] "GET /brand-demo/index.html HTTP/1.1" 200 913 http-bio-8080-exec-1 65
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:09:04:39 +0800] "GET /brand-demo/css/login.css HTTP/1.1" 200 1934 http-bio-8080-exec-3 5
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:09:04:39 +0800] "GET /brand-demo/imgs/Desert1.jpg HTTP/1.1" 200 1631571 http-bio-8080-exec-4 15
-0:0:0:0:0:0:0:1 - - [20/Aug/2022:09:04:39 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-5 0

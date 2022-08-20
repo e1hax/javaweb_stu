@@ -1,6 +1,0 @@
-com\stu\web\SelectAllServlet.class
-com\stu\web\AddServlet.class
-com\stu\service\BrandService.class
-com\stu\util\SqlSessionFactoryUtils.class
-com\stu\mapper\BrandMapper.class
-com\stu\pojo\Brand.class

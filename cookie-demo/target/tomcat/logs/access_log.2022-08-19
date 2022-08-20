@@ -1,8 +1,0 @@
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:29:46 +0800] "GET /cookie-demo HTTP/1.1" 302 - http-bio-8080-exec-2 0
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:29:46 +0800] "GET /cookie-demo/ HTTP/1.1" 200 52 http-bio-8080-exec-3 494
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:29:53 +0800] "GET /cookie-demo/demo1 HTTP/1.1" 200 - http-bio-8080-exec-4 1
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:29:57 +0800] "GET /cookie-demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-6 2
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:38:18 +0800] "GET /cookie-demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-9 1
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:42:49 +0800] "GET /cookie-demo/demo1 HTTP/1.1" 200 - http-bio-8080-exec-3 18
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:42:51 +0800] "GET /cookie-demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-3 0
-0:0:0:0:0:0:0:1 - - [19/Aug/2022:10:44:54 +0800] "GET /cookie-demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-1 30
