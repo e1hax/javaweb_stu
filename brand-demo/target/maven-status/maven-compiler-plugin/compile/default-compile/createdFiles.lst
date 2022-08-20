@@ -10,6 +10,7 @@ com\stu\util\CheckCodeUtil.class
 com\stu\web\SelectAllServlet.class
 com\stu\web\AddServlet.class
 com\stu\service\BrandService.class
+com\stu\web\filter\LoginFilter.class
 com\stu\web\SelectByIdServlet.class
 com\stu\util\SqlSessionFactoryUtils.class
 com\stu\web\LoginServlet.class
