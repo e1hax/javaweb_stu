@@ -12,14 +12,16 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../brand-demo/pom.xml" />
         <option value="$PROJECT_DIR$/../untitled/pom.xml" />
-        <option value="$PROJECT_DIR$/../cookie-demo/pom.xml" />
-        <option value="$PROJECT_DIR$/../filter-demo/pom.xml" />
         <option value="$PROJECT_DIR$/../ajax-demo/pom.xml" />
         <option value="$PROJECT_DIR$/../brand-ajax-demo/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../vue-demo/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
